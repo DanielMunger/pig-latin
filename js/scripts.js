@@ -18,32 +18,36 @@ for(i=0; i<symbols.length; i++) {
   else {
     return false;
   };
-}
+  }
 };
   var vowelCheck = function(words, vowel) {
   for(index=0; index<vowel.length; index++){
     if(words[0] === vowel[index]) {
       words.push("ay")
       output = words.join("");
+      return output;
     }
     else{}
   }
 };
 var consonantCheck = function(words, vowel) {
-  for(i=0; i<vowel.length; i++) {
-    for(index=0; index<words.length; index++) {
-      if(words[index] === vowel[i]) {
-        split = words.splice(0,index);
+  for(i=0; i<words.length; i++) {
+    for(index=0; index<vowel.length; index++) {
+      if(words[i] === vowel[index]) {
+        console.log(words)
+        split = words.splice(0,i);
+        console.log(split, words);
         split = split.join('');
         words.push(split);
         joined = words.join('');
         words.push("ay");
         output = words.join('');
+        console.log(output);
+        return output;
       }
     }
   }
 }
-
 
 //Front-End
 $(document).ready(function() {
