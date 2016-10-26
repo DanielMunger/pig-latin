@@ -1,7 +1,9 @@
 //Back-End
 var original;
 var output = [];
+var split= [];
 var letters = [];
+
 var byLetter ="";
 var letterCheck;
 var vowels = ["A", "a", "E", "e", "I", "i", "O", "o", "U", "u"]
@@ -11,14 +13,31 @@ var splitString = function(stringToSplit, separator) {
   return letters = stringToSplit.split(separator);
 };
 var vowelCheck = function(words, vowel) {
-    for(index=0; index<vowel.length; index++){
-      if(words[0] === vowel[index]) {
-        words.push("ay")
-        output = words.join("");      
-      }
-      else{}
+  for(index=0; index<vowel.length; index++){
+    if(words[0] === vowel[index]) {
+      words.push("ay")
+      output = words.join("");
     }
+    else{}
+  }
 };
+var consonantCheck = function(words, vowel) {
+  for(i=0; i<vowel.length; i++) {
+    for(index=0; index<words.length; index++) {
+      if(words[index] === vowel[i]) {
+
+        split = words.splice(0,index);
+        words.push(split);
+        console.log();
+        words.join("");
+        console.log(words);
+        words.push("ay");
+        output = words.join("");
+        console.log(output);
+      }
+    }
+  }
+}
 
 
 //Front-End
@@ -28,6 +47,7 @@ $(document).ready(function() {
     original = $("#sentence").val();
     letters = splitString(original, byLetter);
     vowelCheck(letters, vowels);
+    consonantCheck(letters, vowels);
     //letterCheck(letters, alphabet);
 
   });
