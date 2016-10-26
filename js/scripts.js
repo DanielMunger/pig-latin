@@ -25,15 +25,12 @@ var consonantCheck = function(words, vowel) {
   for(i=0; i<vowel.length; i++) {
     for(index=0; index<words.length; index++) {
       if(words[index] === vowel[i]) {
-
         split = words.splice(0,index);
+        split = split.join('');
         words.push(split);
-        console.log();
-        words.join("");
-        console.log(words);
+        joined = words.join('');
         words.push("ay");
-        output = words.join("");
-        console.log(output);
+        output = words.join('');
       }
     }
   }
